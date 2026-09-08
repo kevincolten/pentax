@@ -2,24 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
 <title>Pentax Q Lens Sample Gallery</title>
 <style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     background: #111;
     color: #eee;
-    font-family: -apple-system, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 24px 16px 60px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(60px, env(safe-area-inset-bottom));
   }
+  img { max-width: 100%; }
   h1 {
     font-size: 1.4rem;
     text-align: center;
     margin-bottom: 4px;
+    color: #eee;
+    overflow-wrap: anywhere;
   }
   .header-wrap { background: #111; padding-top: 4px; }
   .body-shot { max-width: 500px; margin: 0 auto 20px; }
   .body-shot img { width: 100%; border-radius: 10px; display: block; }
-  h1 { color: #eee; }
   p.sub {
     text-align: center;
     color: #999;
@@ -42,10 +51,11 @@
   }
   .heading-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
     margin-bottom: 14px;
   }
+  .heading-row > div { min-width: 0; }
   .ref-thumb {
     width: 84px;
     height: 84px;
@@ -58,6 +68,8 @@
   .card h2 {
     font-size: 1.05rem;
     margin: 0 0 6px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
   }
   .card p {
     margin: 0;
@@ -77,6 +89,34 @@
     border-radius: 6px;
     background: #000;
   }
+  .photo a {
+    display: block;
+    margin-top: 4px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    color: #6ea8ff;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .photo a:hover { text-decoration: underline; }
+  .manual-link {
+    display: inline-block;
+    padding: 6px 0;
+    color: #6ea8ff;
+    text-decoration: none;
+  }
+  .manual-link:hover { text-decoration: underline; }
+
+  /* Phones: tighter spacing, smaller lens thumb */
+  @media (max-width: 480px) {
+    body { padding-top: 16px; padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+    h1 { font-size: 1.2rem; }
+    .grid { gap: 20px; }
+    .card { padding: 12px; }
+    .heading-row { gap: 10px; }
+    .ref-thumb { width: 64px; height: 64px; padding: 4px; }
+    .card h2 { font-size: 0.98rem; }
+  }
   /* Two across on tablets, three across on large screens */
   @media (min-width: 640px) {
     .photo-row { grid-template-columns: repeat(2, 1fr); }
@@ -84,27 +124,18 @@
       aspect-ratio: 4 / 3;
       object-fit: contain;
     }
+    .heading-row { align-items: center; }
   }
   @media (min-width: 1024px) {
     .photo-row { grid-template-columns: repeat(3, 1fr); }
   }
-  .photo a {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.75rem;
-    color: #6ea8ff;
-    text-decoration: none;
-  }
-  .photo a:hover { text-decoration: underline; }
-  .manual-link { color: #6ea8ff; text-decoration: none; }
-  .manual-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
 <div class="header-wrap">
 <div class="body-shot">
-  <img src="images/pentax-q-body.jpg" alt="Pentax Q body">
+  <img src="images/pentax-q-body.jpg" alt="Pentax Q body" fetchpriority="high">
 </div>
 
 <h1>Pentax Q Lens Lineup — Sample Shots</h1>
@@ -124,34 +155,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/01-sample.jpg" alt="01 sample">
+        <img src="images/01-sample.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6265959585/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/01-sample-2.jpg" alt="01 sample">
+        <img src="images/01-sample-2.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6213019702/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/01-sample-3.jpg" alt="01 sample">
+        <img src="images/01-sample-3.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6249057227/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/01-sample-4.jpg" alt="01 sample">
+        <img src="images/01-sample-4.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/cafetricot/55202967025/" target="_blank">Photo by うさのなぎ / nagi usano →</a>
       </div>
       <div class="photo">
-        <img src="images/01-sample-5.jpg" alt="01 sample">
+        <img src="images/01-sample-5.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/glauberpitfall/54317909326/" target="_blank">Photo by glauberpitfall →</a>
       </div>
       <div class="photo">
-        <img src="images/01-sample-6.jpg" alt="01 sample">
+        <img src="images/01-sample-6.jpg" alt="01 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/glauberpitfall/54306049178/" target="_blank">Photo by glauberpitfall →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/02-lens-itself.jpg" alt="02 lens itself">
+      <img class="ref-thumb" src="images/02-lens-itself.jpg" alt="02 lens itself" loading="lazy">
       <div>
         <h2>02 Standard Zoom — 5-15mm f/2.8-4.5</h2>
         <p>The "serious" everyday kit lens — sharp corner-to-corner, well-corrected, minimal vignetting.</p>
@@ -159,34 +190,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/02-sample.jpg" alt="02 sample">
+        <img src="images/02-sample.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6200151516/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/02-sample-2.jpg" alt="02 sample">
+        <img src="images/02-sample-2.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6199638449/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/02-sample-3.jpg" alt="02 sample">
+        <img src="images/02-sample-3.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6199640189/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/02-sample-4.jpg" alt="02 sample">
+        <img src="images/02-sample-4.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/119825959@N03/48765108121/" target="_blank">Photo by tommyho1945 →</a>
       </div>
       <div class="photo">
-        <img src="images/02-sample-5.jpg" alt="02 sample">
+        <img src="images/02-sample-5.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/156747605@N06/46966427454/" target="_blank">Photo by caddis46 →</a>
       </div>
       <div class="photo">
-        <img src="images/02-sample-6.jpg" alt="02 sample">
+        <img src="images/02-sample-6.jpg" alt="02 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/69doodle/50923338948/" target="_blank">Photo by JSB PHOTOGRAPHS →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/03-lens-itself.jpg" alt="03 lens itself">
+      <img class="ref-thumb" src="images/03-lens-itself.jpg" alt="03 lens itself" loading="lazy">
       <div>
         <h2>03 Fish-Eye — 3.2mm f/5.6</h2>
         <p>Manual focus, no shutter — pronounced barrel distortion and an extreme angle of view.</p>
@@ -194,34 +225,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/03-sample.jpg" alt="03 sample">
+        <img src="images/03-sample.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/8454757165/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/03-sample-2.jpg" alt="03 sample">
+        <img src="images/03-sample-2.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6209280194/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/03-sample-3.jpg" alt="03 sample">
+        <img src="images/03-sample-3.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/6132622626/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/03-sample-4.jpg" alt="03 sample">
+        <img src="images/03-sample-4.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/jezza323/14286581524/" target="_blank">Photo by jezza323 →</a>
       </div>
       <div class="photo">
-        <img src="images/03-sample-5.jpg" alt="03 sample">
+        <img src="images/03-sample-5.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/40075979@N04/26224035023/" target="_blank">Photo by usotuki →</a>
       </div>
       <div class="photo">
-        <img src="images/03-sample-6.jpg" alt="03 sample">
+        <img src="images/03-sample-6.jpg" alt="03 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/anomalocaris9836/19402617233/" target="_blank">Photo by anomalocaris9836 →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/04-lens-itself.jpg" alt="04 lens itself">
+      <img class="ref-thumb" src="images/04-lens-itself.jpg" alt="04 lens itself" loading="lazy">
       <div>
         <h2>04 Toy Lens Wide — 6.3mm f/7.1</h2>
         <p>Fixed aperture, fixed focus. Soft, pan-focus toy-camera character with notably strong flare.</p>
@@ -229,34 +260,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/04-sample.jpg" alt="04 sample">
+        <img src="images/04-sample.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51652006402/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/04-sample-2.jpg" alt="04 sample">
+        <img src="images/04-sample-2.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51983315685/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/04-sample-3.jpg" alt="04 sample">
+        <img src="images/04-sample-3.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51677361301/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/04-sample-4.jpg" alt="04 sample">
+        <img src="images/04-sample-4.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/drougge/8559736735/" target="_blank">Photo by drougge →</a>
       </div>
       <div class="photo">
-        <img src="images/04-sample-5.jpg" alt="04 sample">
+        <img src="images/04-sample-5.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51991142173/" target="_blank">Photo by Bonzo Din →</a>
       </div>
       <div class="photo">
-        <img src="images/04-sample-6.jpg" alt="04 sample">
+        <img src="images/04-sample-6.jpg" alt="04 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/28548893@N02/22018342199/" target="_blank">Photo by ahfeelabout →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/05-lens-itself.jpg" alt="05 lens itself">
+      <img class="ref-thumb" src="images/05-lens-itself.jpg" alt="05 lens itself" loading="lazy">
       <div>
         <h2>05 Toy Lens Telephoto — 18mm f/8</h2>
         <p>Same toy-lens family as the 04, stretched to a short-telephoto field of view.</p>
@@ -264,34 +295,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/05-sample.jpg" alt="05 sample">
+        <img src="images/05-sample.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51653688580/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/05-sample-2.jpg" alt="05 sample">
+        <img src="images/05-sample-2.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51670908628/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/05-sample-3.jpg" alt="05 sample">
+        <img src="images/05-sample-3.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/51687302809/" target="_blank">Photo by River Inn photographer →</a>
       </div>
       <div class="photo">
-        <img src="images/05-sample-4.jpg" alt="05 sample">
+        <img src="images/05-sample-4.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/drougge/8370343483/" target="_blank">Photo by drougge →</a>
       </div>
       <div class="photo">
-        <img src="images/05-sample-5.jpg" alt="05 sample">
+        <img src="images/05-sample-5.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/28548893@N02/14703091509/" target="_blank">Photo by ahfeelabout →</a>
       </div>
       <div class="photo">
-        <img src="images/05-sample-6.jpg" alt="05 sample">
+        <img src="images/05-sample-6.jpg" alt="05 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/darakero/6132419266/" target="_blank">Photo by DaraKero_F →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/06-lens-itself.jpg" alt="06 lens itself">
+      <img class="ref-thumb" src="images/06-lens-itself.jpg" alt="06 lens itself" loading="lazy">
       <div>
         <h2>06 Telephoto Zoom — 15-45mm f/2.8</h2>
         <p>Often called the crowning jewel of the lineup — genuine telephoto reach in a compact, retractable design.</p>
@@ -299,34 +330,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/06-sample.jpg" alt="06 sample">
+        <img src="images/06-sample.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/8220227105/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/06-sample-2.jpg" alt="06 sample">
+        <img src="images/06-sample-2.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/8220224469/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/06-sample-3.jpg" alt="06 sample">
+        <img src="images/06-sample-3.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/27812652@N03/8221305788/" target="_blank">Photo by omochichi →</a>
       </div>
       <div class="photo">
-        <img src="images/06-sample-4.jpg" alt="06 sample">
+        <img src="images/06-sample-4.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/yutakaseki/54630954209/" target="_blank">Photo by Yutaka Seki →</a>
       </div>
       <div class="photo">
-        <img src="images/06-sample-5.jpg" alt="06 sample">
+        <img src="images/06-sample-5.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/optiosv/55400199500/" target="_blank">Photo by Manuel Ranferi Rodriguez →</a>
       </div>
       <div class="photo">
-        <img src="images/06-sample-6.jpg" alt="06 sample">
+        <img src="images/06-sample-6.jpg" alt="06 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/glauberpitfall/54265751740/" target="_blank">Photo by glauberpitfall →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/07-lens-itself.jpg" alt="07 lens itself">
+      <img class="ref-thumb" src="images/07-lens-itself.jpg" alt="07 lens itself" loading="lazy">
       <div>
         <h2>07 Mount Shield — 11.5mm f/9</h2>
         <p>The pancake / body-cap lens — pinhole-style rendering, deep focus, minimal contrast.</p>
@@ -334,34 +365,34 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/07-sample.jpg" alt="07 sample">
+        <img src="images/07-sample.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/seanandersonmedia/42545965432/" target="_blank">Photo by Sean Anderson →</a>
       </div>
       <div class="photo">
-        <img src="images/07-sample-2.jpg" alt="07 sample">
+        <img src="images/07-sample-2.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/seanandersonmedia/42620297091/" target="_blank">Photo by Sean Anderson →</a>
       </div>
       <div class="photo">
-        <img src="images/07-sample-3.jpg" alt="07 sample">
+        <img src="images/07-sample-3.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/seanandersonmedia/52508801889/" target="_blank">Photo by Sean Anderson →</a>
       </div>
       <div class="photo">
-        <img src="images/07-sample-4.jpg" alt="07 sample">
+        <img src="images/07-sample-4.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/28548893@N02/44028463354/" target="_blank">Photo by ahfeelabout →</a>
       </div>
       <div class="photo">
-        <img src="images/07-sample-5.jpg" alt="07 sample">
+        <img src="images/07-sample-5.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/acetonic/11809816173/" target="_blank">Photo by RW Sinclair →</a>
       </div>
       <div class="photo">
-        <img src="images/07-sample-6.jpg" alt="07 sample">
+        <img src="images/07-sample-6.jpg" alt="07 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/seanandersonmedia/42258846631/" target="_blank">Photo by Sean Anderson Media →</a>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/08-lens-itself.jpg" alt="08 lens itself">
+      <img class="ref-thumb" src="images/08-lens-itself.jpg" alt="08 lens itself" loading="lazy">
       <div>
         <h2>08 Wide Zoom — 3.8-5.9mm f/3.7-4</h2>
         <p>The rarest and most expensive lens in the lineup — genuinely excellent wide-angle optics.</p>
@@ -369,27 +400,27 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/08-sample.jpg" alt="08 sample">
+        <img src="images/08-sample.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/nu_llpo/17191881358/" target="_blank">Photo by nu_llpo →</a>
       </div>
       <div class="photo">
-        <img src="images/08-sample-2.jpg" alt="08 sample">
+        <img src="images/08-sample-2.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/nu_llpo/21384057986/" target="_blank">Photo by nu_llpo →</a>
       </div>
       <div class="photo">
-        <img src="images/08-sample-3.jpg" alt="08 sample">
+        <img src="images/08-sample-3.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/nu_llpo/21222698208/" target="_blank">Photo by nu_llpo →</a>
       </div>
       <div class="photo">
-        <img src="images/08-sample-4.jpg" alt="08 sample">
+        <img src="images/08-sample-4.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/187689795@N06/52251134507/" target="_blank">Photo by Bonzo Din →</a>
       </div>
       <div class="photo">
-        <img src="images/08-sample-5.jpg" alt="08 sample">
+        <img src="images/08-sample-5.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/minami/32830279512/" target="_blank">Photo by digitalbear →</a>
       </div>
       <div class="photo">
-        <img src="images/08-sample-6.jpg" alt="08 sample">
+        <img src="images/08-sample-6.jpg" alt="08 sample" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/minami/32140749684/" target="_blank">Photo by digitalbear →</a>
       </div>
     </div>
@@ -397,7 +428,7 @@
 
   <div class="card">
     <div class="heading-row">
-      <img class="ref-thumb" src="images/09-telephoto-macro-prototype.jpg" alt="09 Telephoto Macro prototype">
+      <img class="ref-thumb" src="images/09-telephoto-macro-prototype.jpg" alt="09 Telephoto Macro prototype" loading="lazy">
       <div>
         <h2>09 Telephoto Macro — 20mm f/2.8 (unreleased prototype)</h2>
         <p>Never sold — smc PENTAX MACRO 20mm f/2.8, tested and photographed in 2017 by Japanese photographer Kimio Tanaka, who borrowed it independently of Ricoh. Fast AF, ~92mm equivalent, 0.22x max magnification.</p>
@@ -405,7 +436,7 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/09-telephoto-macro-sample-shot.jpg" alt="09 Telephoto Macro sample shot">
+        <img src="images/09-telephoto-macro-sample-shot.jpg" alt="09 Telephoto Macro sample shot" loading="lazy" decoding="async">
         <a href="https://pentaxrumors.com/2017/05/13/more-on-the-pentax-09-telephoto-macro-a-k-a-smc-pentax-macro-20mm-f2-8-lens/" target="_blank">Photo by Kimio Tanaka, via PentaxRumors →</a>
       </div>
     </div>
@@ -420,15 +451,15 @@
     </div>
     <div class="photo-row">
       <div class="photo">
-        <img src="images/speed-booster-sample-telephoto-bokeh.jpg" alt="Speed booster sample — telephoto bokeh">
+        <img src="images/speed-booster-sample-telephoto-bokeh.jpg" alt="Speed booster sample — telephoto bokeh" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/causticsurface/51567822985/" target="_blank">OM 300mm f/4.5 → 690mm equiv. at f/2.25, by causticsurface →</a>
       </div>
       <div class="photo">
-        <img src="images/speed-booster-sample-nikkor-50mm.jpg" alt="Speed booster sample — Nikkor 50mm">
+        <img src="images/speed-booster-sample-nikkor-50mm.jpg" alt="Speed booster sample — Nikkor 50mm" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/causticsurface/51922939171/" target="_blank">Nikkor 50mm f/1.8 via Q666, by causticsurface →</a>
       </div>
       <div class="photo">
-        <img src="images/speed-booster-sample-tamron-350mm.jpg" alt="Speed booster sample — Tamron 350mm">
+        <img src="images/speed-booster-sample-tamron-350mm.jpg" alt="Speed booster sample — Tamron 350mm" loading="lazy" decoding="async">
         <a href="https://www.flickr.com/photos/causticsurface/52659765769/" target="_blank">Tamron SP 350mm f/5.6 via Q666, by causticsurface →</a>
       </div>
     </div>
